@@ -1,0 +1,30 @@
+# 核心框架
+langchain
+langgraph
+langchain-deepseek
+langchain-milvus
+langgraph-checkpoint-postgres
+
+# 文档解析
+mineru[all]
+
+# 向量化
+sentence-transformers
+
+# 向量库
+pymilvus[model]
+
+# 图数据库
+neo4j
+
+# 对象存储
+minio
+
+# PostgreSQL
+psycopg[binary]
+
+# 基础
+python-dotenv
+
+# 测试
+pytest
