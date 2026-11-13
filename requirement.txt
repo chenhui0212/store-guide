@@ -6,7 +6,7 @@ langchain-milvus
 langgraph-checkpoint-postgres
 
 # 文档解析
-mineru[all]
+mineru[all]>=4.0,<5.0
 
 # 向量化
 sentence-transformers
@@ -25,6 +25,9 @@ psycopg[binary]
 
 # 基础
 python-dotenv
+
+# Mac 环境
+mlx-vlm>=0.7.0,<0.8.0
 
 # 测试
 pytest
