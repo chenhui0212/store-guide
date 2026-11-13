@@ -1,0 +1,18 @@
+# IDE
+.vscode
+.idea
+
+# Environments
+.env
+.venv
+env/
+venv*/
+
+# Docker
+volumes/
+
+# Compiled
+__pycache__
+
+# Mac
+.DS_Store
