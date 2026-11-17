@@ -54,6 +54,10 @@ def _size(key: str, default: str) -> int:
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 CHAT_MODEL = os.getenv("CHAT_MODEL", "deepseek-v4-pro")
 
+DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
+DASHSCOPE_API_BASE = os.getenv("DASHSCOPE_API_BASE", "")
+DASHSCOPE_VLM_MODEL = os.getenv("DASHSCOPE_VLM_MODEL", "qwen3-vl-plus")
+
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 数据层连接
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

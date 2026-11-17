@@ -6,7 +6,7 @@ tests_dir = Path(__file__).resolve().parent
 
 def test_parse():
     """测试解析 PDF 文件"""
-    pdf_dir = tests_dir / "mineru"
+    pdf_dir = tests_dir / "fixtures"
     result = parse(
         pdf_dir / "万用表RS-12的使用.pdf",
         tier="standard",
