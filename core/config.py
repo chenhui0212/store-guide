@@ -19,6 +19,11 @@ def _int(key: str, default: int) -> int:
     return int(os.getenv(key, str(default)))
 
 
+def _bool(key: str, default: str) -> bool:
+    """从环境读布尔值"""
+    return os.getenv(key, default).strip().lower() in {"1", "true", "yes", "on"}
+
+
 def _csv(key: str, default: str = "") -> tuple[str, ...]:
     """读取逗号分隔的环境变量"""
     return tuple(
@@ -60,6 +65,7 @@ MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "localhost:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minioadmin")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minioadmin")
 MINIO_BUCKET = os.getenv("MINIO_BUCKET", "store-guide")
+MINIO_SECURE = _bool("MINIO_SECURE", "False")
 
 # Neo4j
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")

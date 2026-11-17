@@ -41,6 +41,6 @@ def parse_document(state: IngestionState) -> Dict:
             raise ParseDocumentError(
                 node_name="parse_document",
                 message=f"MinerU解析文档失败: {e}",
-            )
+            ) from e
 
     return {"markdown_content": content}

@@ -7,7 +7,10 @@ def test_parse_document_with_pdf():
     file_name = "H3C LA2608室内无线网关 用户手册.pdf"
     pdf_path = Path(__file__).resolve().parents[1] / "fixtures" / file_name
 
-    result = parse_document({"file_path": str(pdf_path)})
+    result = parse_document({
+        "file_path": str(pdf_path),
+        "file_title": Path(file_name).stem
+    })
 
     assert result["markdown_content"].strip()
     assert "H3C LA2608 室内无线网关" in result["markdown_content"]
