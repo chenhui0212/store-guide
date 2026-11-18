@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from core.callbacks.node_logging import NodeLoggingCallback
 from core.graphs.ingestion.graph import build_ingestion_graph
 
 
@@ -10,6 +11,6 @@ def test_ingestion_graph_with_pdf():
 
     graph = build_ingestion_graph()
     state = {"file_path": str(pdf_path)}
-    result = graph.invoke(state)
+    result = graph.invoke(state, config={"callbacks": [NodeLoggingCallback()]})
 
     assert "H3C LA2608 室内无线网关" in result["markdown_content"]

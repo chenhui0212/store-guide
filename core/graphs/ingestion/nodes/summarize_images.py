@@ -1,3 +1,4 @@
+import logging
 import re
 
 from langchain_core.messages import HumanMessage
@@ -7,6 +8,8 @@ from core.exceptions import StateFieldError
 from core.graphs.ingestion.state import IngestionState
 from infrastructure.models.vision import vlm
 from prompts.ingestion_prompts import IMAGE_SUMMARY_PROMPT
+
+logger = logging.getLogger(__name__)
 
 # 匹配图片
 IMAGE_DATA_URI_RE = re.compile(
@@ -27,7 +30,12 @@ def summarize_images(state: IngestionState):
     _validate_state(state)
     markdown = state["markdown_content"]
 
+    matches = list(IMAGE_DATA_URI_RE.finditer(markdown))
+    logger.info("待生成摘要的图片: %d 张", len(matches))
+    summarize_count = 0
+
     def replace_image(match: re.Match) -> str:
+        nonlocal summarize_count
         context = _extract_image_context(markdown, match)
 
         mime_type = match.group("mime").lower()
@@ -35,6 +43,9 @@ def summarize_images(state: IngestionState):
 
         summary = _summarize_image(mime_type, encoded, context)
         alt_text = _escape_alt_text(summary)
+
+        summarize_count += 1
+        logger.info("图片摘要 (%d/%d) 张: %s", summarize_count, len(matches), alt_text[:50])
 
         return f"![{alt_text}](data:{mime_type};base64,{encoded})"
 

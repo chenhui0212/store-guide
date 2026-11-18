@@ -2,10 +2,10 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.graph.state import CompiledStateGraph
 
 from core.graphs.ingestion.nodes.parse_document import parse_document
+from core.graphs.ingestion.nodes.summarize_images import summarize_images
 from core.graphs.ingestion.nodes.upload_images import upload_images
 from core.graphs.ingestion.nodes.validate_request import validate_request
-from core.graphs.ingestion.nodes.summarize_images import summarize_images
-from .state import IngestionState
+from core.graphs.ingestion.state import IngestionState
 
 
 def build_ingestion_graph() -> CompiledStateGraph:

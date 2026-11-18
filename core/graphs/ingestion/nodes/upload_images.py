@@ -1,10 +1,13 @@
 import base64
+import logging
 import re
 
 from core.exceptions import StateFieldError, StorageError
 from core.graphs.ingestion.state import IngestionState
 from infrastructure.storage.minio_image_storage import ImageStorageClient
 from utils import image_utils
+
+logger = logging.getLogger(__name__)
 
 IMAGE_DATA_URI_RE = re.compile(
     r'!\[(?P<alt>[^]]*)]\(\s*'
@@ -20,7 +23,12 @@ def upload_images(state: IngestionState):
 
     client = ImageStorageClient()
 
+    matches = list(IMAGE_DATA_URI_RE.finditer(state["markdown_content"]))
+    logger.info("待上传的图片: %d 张", len(matches))
+    uploaded_count = 0
+
     def replace_image(match: re.Match) -> str:
+        nonlocal uploaded_count
         mime_type = match.group("mime").lower()
 
         try:
@@ -55,6 +63,10 @@ def upload_images(state: IngestionState):
                 node_name="upload_images",
                 message=f"上传图片失败：{e}",
             ) from e
+
+        uploaded_count += 1
+        logger.info("图片上传完成: %s (%d/%d)", image_file_name, uploaded_count, len(matches))
+
         return f"![{match.group('alt')}]({uploaded_url})"
 
     updated_content = IMAGE_DATA_URI_RE.sub(

@@ -1,5 +1,4 @@
 import logging
-import time
 from pathlib import Path
 from typing import Dict
 
@@ -7,6 +6,8 @@ from mineru import parse
 
 from core.exceptions import StateFieldError, ParseDocumentError
 from core.graphs.ingestion.state import IngestionState
+
+logger = logging.getLogger(__name__)
 
 
 def parse_document(state: IngestionState) -> Dict:
@@ -22,6 +23,7 @@ def parse_document(state: IngestionState) -> Dict:
 
     # Markdown 文件则直接读取，否则解析
     if path.suffix.lower() == ".md":
+        logger.info("直接读取 Markdown: %s", path.name)
         try:
             content = path.read_text(encoding="utf-8")
         except (OSError, UnicodeError) as e:
@@ -31,11 +33,8 @@ def parse_document(state: IngestionState) -> Dict:
             ) from e
     else:
         try:
-            logging.info(f"开始解析文件: {state['file_title']}")
-            start_time = time.time()
+            logger.info("解析文件: %s", path.name)
             result = parse(path, tier="standard")
-            logging.info(f"文件解析完成: {state['file_title']}, 耗时: {time.time() - start_time:.2f} 秒")
-
             content = result.markdown()
         except Exception as e:
             raise ParseDocumentError(
