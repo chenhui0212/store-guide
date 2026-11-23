@@ -34,7 +34,11 @@ def parse_document(state: IngestionState) -> Dict:
     else:
         try:
             logger.info("解析文件: %s", path.name)
-            result = parse(path, tier="standard")
+            result = parse(
+                path,
+                tier="advanced",
+                image_analysis=False,
+            )
             content = result.markdown()
         except Exception as e:
             raise ParseDocumentError(

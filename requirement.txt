@@ -3,10 +3,12 @@ langchain
 langgraph
 langchain-deepseek
 langchain-milvus
+langchain-text-splitters
 langgraph-checkpoint-postgres
 
 # 文档解析
 mineru[all]>=4.0,<5.0
+chonkie
 
 # 向量化
 sentence-transformers

@@ -89,4 +89,7 @@ SUPPORTED_EXTENSIONS = frozenset(
     for item in _csv("SUPPORTED_EXTENSIONS", ".pdf,.docx")
 )
 MAX_FILE_SIZE = _size("MAX_FILE_SIZE", "10MB")
-MAX_CONTENT_LENGTH = _int("MAX_CONTENT_LENGTH", 10000)
+
+# Markdown 切分参数（按字符计数）
+CHUNK_SIZE = _int("CHUNK_SIZE", 1000)
+CHUNK_OVERLAP = _int("CHUNK_OVERLAP", 0)

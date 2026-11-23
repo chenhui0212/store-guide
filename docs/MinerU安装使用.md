@@ -31,3 +31,17 @@ from mineru.parser import parse
 result = parse("document.pdf", tier="standard")
 Path("document.md").write_text(result.markdown(), encoding="utf-8")
 ```
+
+添加开启标题分级本地配置
+
+~/.mineru/config.yaml
+
+```
+llm_aided:
+  api_key: sk-xxxx
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: qwen3.8-flash
+  enable_thinking: false
+  features:
+    title_leveling: true
+```

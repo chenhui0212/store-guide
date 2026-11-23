@@ -1,4 +1,6 @@
-from typing import TypedDict, List, Required
+from typing import Required, TypedDict
+
+from langchain_core.documents import Document
 
 
 class IngestionState(TypedDict, total=False):
@@ -18,4 +20,4 @@ class IngestionState(TypedDict, total=False):
 
     markdown_content: str
 
-    chunks: List
+    chunks: list[Document]
