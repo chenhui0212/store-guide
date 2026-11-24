@@ -20,3 +20,7 @@ def test_summarize_images_with_pdf():
     images = list(IMAGE_DATA_URI_RE.finditer(result["markdown_content"]))
     assert images, "没有找到图片"
     assert all(image.group("alt").strip() for image in images), "存在没有简介的图片"
+
+    # 保存结果
+    md_path = fixtures_dir / "万用表RS-12的使用_summarize_images.md"
+    md_path.write_text(result["markdown_content"], encoding="utf-8")

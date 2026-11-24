@@ -40,7 +40,7 @@ Path("document.md").write_text(result.markdown(), encoding="utf-8")
 llm_aided:
   api_key: sk-xxxx
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
-  model: qwen3.8-flash
+  model: qwen3.8-max
   enable_thinking: false
   features:
     title_leveling: true

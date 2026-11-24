@@ -2,7 +2,7 @@ import logging
 import re
 from typing import Any
 
-from chonkie import TableChef, TableChunker
+from chonkie import TableChef, TableChunker, MarkdownDocument
 from langchain_core.documents import Document
 from langchain_text_splitters import (
     ExperimentalMarkdownSyntaxTextSplitter,
@@ -15,11 +15,13 @@ from core.graphs.ingestion.state import IngestionState
 
 logger = logging.getLogger(__name__)
 
+# MinerU 解析的文档只包含 H2-H6 标题
 HEADERS_TO_SPLIT_ON = [
-    ("#", "h1"),
     ("##", "h2"),
     ("###", "h3"),
     ("####", "h4"),
+    ("#####", "h5"),
+    ("######", "h6"),
 ]
 
 _HTML_TABLE_RE = re.compile(r"<table\b[^>]*>.*?</table\s*>", re.IGNORECASE | re.DOTALL)
@@ -58,7 +60,7 @@ def _validate_state(state: IngestionState) -> None:
 
 
 def _merge_small_sections(sections: list[Document]) -> list[Document]:
-    """按 H4/H3/H2 层级合并短小节"""
+    """按 H6/H5/H4/H3 层级合并短小节"""
     merge_trigger = config.CHUNK_SIZE // 4
     merge_cap = config.CHUNK_SIZE * 3 // 4
 
@@ -79,7 +81,7 @@ def _merge_small_sections(sections: list[Document]) -> list[Document]:
         )
         return f"{path}\n\n" if path else ""
 
-    for level in (4, 3, 2):
+    for level in (6, 5, 4, 3):
         merged: list[Document] = []
         current: Document | None = None
         current_was_merged = False
@@ -155,7 +157,7 @@ def _split_oversized_sections(sections: list[Document], state: IngestionState) -
         # 标题路径
         section_path = " > ".join(
             section.metadata[key].strip()
-            for key in ("h1", "h2", "h3", "h4")
+            for key in ("h2", "h3", "h4", "h5", "h6")
             if isinstance(section.metadata.get(key), str) and section.metadata[key].strip()
         )
         prefix = f"{section_path}" if section_path else ""
@@ -192,7 +194,8 @@ def _split_oversized_sections(sections: list[Document], state: IngestionState) -
 
 def _split_section_content(content: str, chunk_size: int) -> list[str]:
     """切分小节内容"""
-    markdown_document = TableChef().parse(content)
+    # TableChef 的 Markdown 表格识别依赖行尾换行，导致小节最后的表格的最后一行被当作正文切分
+    markdown_document: MarkdownDocument = TableChef().parse(f"{content}\n")
     tables = sorted(markdown_document.tables, key=lambda table: table.start_index)
 
     prose_splitter = RecursiveCharacterTextSplitter(

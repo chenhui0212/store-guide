@@ -1,16 +1,14 @@
-![RS PRO品牌标识](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/57c17880554d1c0a37e7859cb87b9eae051bd9164c8e719a8e82f586aa443d71.jpg)
-
-**使用说明书**
+## 使用说明书
 
 **RS-12**
 
 **编号: 123-1939**
 
-**数字万用表**
+## 数字万用表
 
 中文
 
-![数字万用表RS-12面板示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/82d7660159f9b9f95a2383b7b4edfc1df5c2883d6a2f0d664c9e430a45f6e730.jpg)
+![数字万用表面板示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/82d7660159f9b9f95a2383b7b4edfc1df5c2883d6a2f0d664c9e430a45f6e730.jpg)
 
 ## 安全手册
 
@@ -34,7 +32,7 @@
 6. 打开后盖，更换保险丝或电池之前，请关闭电源并取下表笔。
 7. 请勿使用仪表，直到电池盖和保险丝盖装好，螺丝拧紧。
 
-## 安全标识
+### 安全标识
 
 ![警告标识：注意危险](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/c5a2e4ea33c87a67d87a40b113100587396268ab60a77b0236154e7374419749.jpg)
 
@@ -48,11 +46,11 @@
 
 表明此处可能出现危险电压，请避开以免导致仪表的损坏。
 
-![最大输入标识](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/f317516c215a489b25a02c2bb7fc4cac0da40e02f6deeeb25707ede445e2f839.jpg)
+![最大输入限制标识](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/f317516c215a489b25a02c2bb7fc4cac0da40e02f6deeeb25707ede445e2f839.jpg)
 
 请勿连接到500VAC或VDC的电路上。
 
-![高压危险警示标识](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/e5d625603095677645ff8d67531cf5c9024b1f2d052342547f76752a701af3b5.jpg)
+![危险电压警告标识](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/e5d625603095677645ff8d67531cf5c9024b1f2d052342547f76752a701af3b5.jpg)
 
 表明此端口可能出现危险电压。
 
@@ -84,7 +82,7 @@ VAC 交流电流
 ADC 直流电流
 BAT 电池电量不足指示
 
-### 规格
+规格
 
 <table><tr><td>功能</td><td>量程</td><td>分辨率</td><td>精确度</td></tr><tr><td rowspan="5">直流电压</td><td>200mV</td><td>0.1mV</td><td rowspan="3">±(0.5% reading + 2 digits)</td></tr><tr><td>2000mV</td><td>1mV</td></tr><tr><td>20V</td><td>0.01V</td></tr><tr><td>200V</td><td>0.1V</td><td rowspan="2">±(0.8% reading + 2 digits)</td></tr><tr><td>600V</td><td>1V</td></tr><tr><td rowspan="2">交流电压</td><td>200V</td><td>0.1V</td><td rowspan="2">±(1.2% reading + 10 digits 50/60Hz)</td></tr><tr><td>600V</td><td>1V</td></tr><tr><td rowspan="4">直流电流</td><td>2000μA</td><td>1μA</td><td rowspan="2">±(1.0% reading + 2 digits)</td></tr><tr><td>20mA</td><td>10μA</td></tr><tr><td>200mA</td><td>100μA</td><td>±(1.2% reading + 2 digits)</td></tr><tr><td>10A</td><td>10mA</td><td>±(2.0% reading + 2 digits)</td></tr><tr><td rowspan="5">电阻</td><td>200Ω</td><td>0.1Ω</td><td rowspan="4">±(0.8% reading + 2 digits)</td></tr><tr><td>2000Ω</td><td>1Ω</td></tr><tr><td>20kΩ</td><td>0.01kΩ</td></tr><tr><td>200kΩ</td><td>0.1kΩ</td></tr><tr><td>2000kΩ</td><td>1kΩ</td><td>±(1.0% reading + 2 digits)</td></tr><tr><td rowspan="2">电池</td><td>9V</td><td>10mV</td><td rowspan="2">±(1.0% reading + 2 digits)</td></tr><tr><td>1.5V</td><td>1mV</td></tr></table>
 
@@ -95,7 +93,7 @@ BAT 电池电量不足指示
 
 注意: 精确度在65°F 至 83°F (18°C 至 28°C)，湿度低于75%RH时得出。
 
-## 技术指标说明
+技术指标说明
 
 | 二极管测试 | 测试电流最大值1mA,开路电压2.8V DC典型值 |
 | --- | --- |
@@ -120,7 +118,7 @@ BAT 电池电量不足指示
 | 安全认证 | 室内使用,符合过电压类别II |
 | 污染级别 | 2 |
 
-## 电池安装
+### 电池安装
 
 **警告:** 为防触电, 打开电池后盖前后，请勿操作仪表并把表笔与电源断开。
 
@@ -182,7 +180,7 @@ BAT 电池电量不足指示
 
 **注意:**正打开或关闭电源时不要进行此项测量，瞬间的强大电压将损坏仪表。
 
-![数字万用表测量交流电压的接线示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/4a23a46041bd2126bd44e23bacea45845236054766453ca6babab500970e3c90.jpg)
+![数字万用表测量交流电压示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/4a23a46041bd2126bd44e23bacea45845236054766453ca6babab500970e3c90.jpg)
 
 1. 将功能转盘置于V AC的位置。
 2. 将黑色表笔插入负极COM端口，红色表笔插入正极V端口。
@@ -194,7 +192,7 @@ BAT 电池电量不足指示
 
 **注意:**在10A情况下测量时间不能超过30秒，否则将可能损坏仪表或表笔。
 
-![直流电流测量接线示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/a5da27c67c93b62afb6e172155c959ea65eeea7204c369b8436959e8076d284a.jpg)
+![数字万用表测量直流电流的接线示意图](http://localhost:9000/store-guide/%E4%B8%87%E7%94%A8%E8%A1%A8RS-12%E7%9A%84%E4%BD%BF%E7%94%A8/a5da27c67c93b62afb6e172155c959ea65eeea7204c369b8436959e8076d284a.jpg)
 
 1. 将黑色表笔插入负极COM端口。
 2. 测量直流200mA 以下的电流,将功能转盘置于最高DC mA档位，并将红色表笔插入mA端口。

@@ -17,3 +17,7 @@ def test_upload_images_with_pdf():
 
     assert result["markdown_content"].strip()
     assert "localhost:9000/store-guide" in result["markdown_content"]
+
+    # 保存结果
+    md_path = fixtures_dir / "万用表RS-12的使用_upload_images.md"
+    md_path.write_text(result["markdown_content"], encoding="utf-8")
