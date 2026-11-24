@@ -21,3 +21,13 @@ class IngestionState(TypedDict, total=False):
     markdown_content: str
 
     chunks: list[Document]
+
+    # ===== 向量化结果 =====
+
+    item_name_dense_embedding: list[float]
+
+    item_name_sparse_embedding: dict[int, float]
+
+    chunk_dense_embeddings: list[list[float]]
+
+    chunk_sparse_embeddings: list[dict[int, float]]

@@ -58,6 +58,12 @@ DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
 DASHSCOPE_API_BASE = os.getenv("DASHSCOPE_API_BASE", "")
 DASHSCOPE_VLM_MODEL = os.getenv("DASHSCOPE_VLM_MODEL", "qwen3-vl-plus")
 
+# Embedding
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-m3")
+EMBEDDING_BATCH_SIZE = _int("EMBEDDING_BATCH_SIZE", 8)
+EMBEDDING_DEVICE = os.getenv("EMBEDDING_DEVICE", "cpu")
+EMBEDDING_USE_FP16 = _bool("EMBEDDING_USE_FP16", "False")
+
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 数据层连接
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
