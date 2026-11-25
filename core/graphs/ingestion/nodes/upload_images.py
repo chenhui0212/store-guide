@@ -4,7 +4,7 @@ import re
 
 from core.exceptions import StateFieldError, StorageError
 from core.graphs.ingestion.state import IngestionState
-from infrastructure.storage.minio_image_storage import ImageStorageClient
+from infrastructure.storage.minio_image_store import get_image_store_client
 from utils import image_utils
 
 logger = logging.getLogger(__name__)
@@ -21,7 +21,7 @@ def upload_images(state: IngestionState):
     """上传图片到存储"""
     _validate_state(state)
 
-    client = ImageStorageClient()
+    client = get_image_store_client()
 
     matches = list(IMAGE_DATA_URI_RE.finditer(state["markdown_content"]))
     logger.info("待上传的图片: %d 张", len(matches))

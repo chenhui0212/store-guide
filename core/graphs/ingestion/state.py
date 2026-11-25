@@ -8,6 +8,8 @@ class IngestionState(TypedDict, total=False):
 
     task_id: str
 
+    document_id: str
+
     file_path: Required[str]
 
     # ===== 文件信息 =====

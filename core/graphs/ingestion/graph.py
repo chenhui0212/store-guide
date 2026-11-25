@@ -5,6 +5,7 @@ from core.graphs.ingestion.nodes.chunk_document import chunk_document
 from core.graphs.ingestion.nodes.embed_document import embed_document
 from core.graphs.ingestion.nodes.identify_item_name import identify_item_name
 from core.graphs.ingestion.nodes.parse_document import parse_document
+from core.graphs.ingestion.nodes.store_embeddings import store_embeddings
 from core.graphs.ingestion.nodes.summarize_images import summarize_images
 from core.graphs.ingestion.nodes.upload_images import upload_images
 from core.graphs.ingestion.nodes.validate_request import validate_request
@@ -20,6 +21,7 @@ def build_ingestion_graph() -> CompiledStateGraph:
     builder.add_node("chunk_document", chunk_document)
     builder.add_node("identify_item_name", identify_item_name)
     builder.add_node("embed_document", embed_document)
+    builder.add_node("store_embeddings", store_embeddings)
 
     builder.add_edge(START, "validate_request")
     builder.add_edge("validate_request", "parse_document")
@@ -28,6 +30,7 @@ def build_ingestion_graph() -> CompiledStateGraph:
     builder.add_edge("upload_images", "chunk_document")
     builder.add_edge("chunk_document", "identify_item_name")
     builder.add_edge("identify_item_name", "embed_document")
-    builder.add_edge("embed_document", END)
+    builder.add_edge("embed_document", "store_embeddings")
+    builder.add_edge("store_embeddings", END)
 
     return builder.compile()

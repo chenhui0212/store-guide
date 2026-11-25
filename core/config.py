@@ -69,6 +69,9 @@ EMBEDDING_USE_FP16 = _bool("EMBEDDING_USE_FP16", "False")
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Milvus
 MILVUS_URI = os.getenv("MILVUS_URI", "http://localhost:19530")
+MILVUS_DATABASE = os.getenv("MILVUS_DATABASE", "store_guide")
+MILVUS_ITEM_NAME_COLLECTION = os.getenv("MILVUS_ITEM_NAME_COLLECTION", "kb_item_names")
+MILVUS_CHUNK_COLLECTION = os.getenv("MILVUS_CHUNK_COLLECTION", "kb_chunks")
 
 # MinIO
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "localhost:9000")

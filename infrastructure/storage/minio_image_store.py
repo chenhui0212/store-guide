@@ -1,3 +1,4 @@
+from functools import lru_cache
 from io import BytesIO
 from urllib.parse import quote
 
@@ -6,7 +7,7 @@ from minio import Minio
 import core.config as config
 
 
-class ImageStorageClient:
+class ImageStoreClient:
 
     def __init__(self, client: Minio | None = None):
         self._client = client or Minio(
@@ -35,3 +36,8 @@ class ImageStorageClient:
         scheme = "https" if config.MINIO_SECURE else "http"
         base_url = f"{scheme}://{config.MINIO_ENDPOINT}"
         return f"{base_url}/{self._bucket}/{quote(object_name, safe='/')}"
+
+
+@lru_cache(maxsize=1)
+def get_image_store_client() -> ImageStoreClient:
+    return ImageStoreClient()
